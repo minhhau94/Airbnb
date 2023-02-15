@@ -7,6 +7,8 @@ import { room } from "services/room";
 
 //getALL
 export const getAllRentalRoomAction = () => {
+
+  
   return async (dispatch) => {
     try {
       const result = await room.getAllRentalRoom();

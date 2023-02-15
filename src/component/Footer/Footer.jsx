@@ -135,7 +135,7 @@ export default function Footer() {
         <div className="flex mt-4 space-x-6 sm:justify-center md:mt-0">
           <a
             href="#"
-            className="text-gray-400 hover:text-gray-900 dark:hover:text-white"
+            className="text-gray-400 hover:text-rose-500 dark:hover:text-white"
           >
             <svg
               className="w-5 h-5"
@@ -153,7 +153,7 @@ export default function Footer() {
           </a>
           <a
             href="#"
-            className="text-gray-400 hover:text-gray-900 dark:hover:text-white"
+            className="text-gray-400 hover:text-rose-500 dark:hover:text-white"
           >
             <svg
               className="w-5 h-5"
@@ -171,7 +171,7 @@ export default function Footer() {
           </a>
           <a
             href="#"
-            className="text-gray-400 hover:text-gray-900 dark:hover:text-white"
+            className="text-gray-400 hover:text-rose-500 dark:hover:text-white"
           >
             <svg
               className="w-5 h-5"
@@ -185,7 +185,7 @@ export default function Footer() {
           </a>
           <a
             href="#"
-            className="text-gray-400 hover:text-gray-900 dark:hover:text-white"
+            className="text-gray-400 hover:text-rose-500 dark:hover:text-white"
           >
             <svg
               className="w-5 h-5"
@@ -203,7 +203,7 @@ export default function Footer() {
           </a>
           <a
             href="#"
-            className="text-gray-400 hover:text-gray-900 dark:hover:text-white"
+            className="text-gray-400 hover:text-rose-500 dark:hover:text-white"
           >
             <svg
               className="w-5 h-5"

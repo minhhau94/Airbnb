@@ -31,10 +31,10 @@ export default function NavBar() {
 
   return (
     <header>
-      <nav className="">
-        <a className="cursor-pointer" href="/">
+      <nav>
+        <Link to="/">
           <img src={logo} className={clsx(styles.navbar_logo)} alt="" />
-        </a>
+        </Link>
         <div
           className={clsx(styles.search_bar)}
           onClick={() => {

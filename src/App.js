@@ -8,7 +8,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { getAllCommentsAction } from "redux/actions/CommentsAction";
 import AdminTemplate from "templates/AdminTemplate/AdminTemplate";
 
-import HomeTemplate from "templates/HomeTemplate/HomeTemplate";
+
 import Detail from "pages/Detail/Detail";
 import Dashboard from "pages/Admin/Dashboard/Dashboard";
 import UpdateUser from "pages/Admin/Dashboard/UpdateUser";
@@ -31,8 +31,8 @@ import Register from "pages/Resgiter/Register";
 import { LoginAction } from "redux/actions/AuthAction";
 import LocationClient from "pages/LocationClient/LocationClient";
 import { getAlllocationAction } from "redux/actions/LocationAction";
-import { ImportOutlined } from "@ant-design/icons";
 import _ from "lodash";
+import Test  from "Test";
 
 function App() {
   let user = JSON.parse(localStorage.getItem("data"));
@@ -54,10 +54,9 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="detail/:id" element={<Detail />} />
+        <Route path="Test" element={<Test />} />
 
-        <Route path="" element={<HomeTemplate />}>
-          <Route index path="" element={<Home />}></Route>
-        </Route>
+        <Route path="" element={<Home />} />
 
         <Route path="locationClient/:id" element={<LocationClient />} />
 

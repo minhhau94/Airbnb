@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import styles from "./DetailRoom.module.css";
+import  "component/RoomDetail/RoomDetail.css";
 
 import {
   Button,
@@ -25,8 +25,6 @@ import {
   CarOutlined,
   DoubleRightOutlined,
   HeatMapOutlined,
-  RightOutlined,
-  StarOutlined,
   UserOutlined,
 } from "@ant-design/icons";
 import {
@@ -53,8 +51,6 @@ const { RangePicker } = DatePicker;
 // Detail Room
 function DetailRoom({ paramsId }) {
   const dispatch = useDispatch();
-
-  console.log(paramsId);
   const detailRoom = useSelector(
     (state) => state.RoomReducers.getRenderRoomrByID
   );
@@ -66,7 +62,6 @@ function DetailRoom({ paramsId }) {
   useEffect(() => {
     dispatch(getRentalRoomByIDAction(paramsId));
     dispatch(getCommentByRoomAction(paramsId));
-
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [paramsId]);
 
@@ -135,7 +130,6 @@ function DetailRoom({ paramsId }) {
   const handleCancel = () => {
     setIsModalOpen(false);
   };
-
   // form comment
   const [form] = Form.useForm();
   const commentValue = Form.useWatch("comment", form);
@@ -145,17 +139,18 @@ function DetailRoom({ paramsId }) {
     const data = {
       id: 0,
       maPhong: paramsId,
-      maNguoiBinhLuan: user?.id,
-      ngayBinhLuan: dayjs().format("DD/MM/YYYY"),
+      maNguoiBinhLuan: user.id,
+      ngayBinhLuan: dayjs(),
       noiDung: commentValue,
       saoBinhLuan: 0,
     };
+
     try {
       await dispatch(PostCommentAction(data));
       message.success("Bình luận thành công!");
       console.log(data);
     } catch (err) {
-      // message.error("Bình luận không được để trống");
+      message.error("Bình luận không được để trống");
     }
   };
 
@@ -167,7 +162,7 @@ function DetailRoom({ paramsId }) {
   };
 
   return (
-    <div className="container m-auto">
+    <div>
       <h1 className="mt-6 py-2 lg:text-3xl sm:text-xl font-bold">
         {detailRoom?.tenPhong}
       </h1>
@@ -626,6 +621,7 @@ function DetailRoom({ paramsId }) {
                     </h3>
                     {/* <Rate value={item.saoBinhLuan} count={5} /> */}
                     <p className="text-sm text-gray-500 m-0">
+                      {/* {item.ngayBinhLuan} */}
                       {dayjs(item.ngayBinhLuan).format("DD-MM-YYYY")}
                     </p>
                   </div>
@@ -635,9 +631,9 @@ function DetailRoom({ paramsId }) {
             );
           })}
         </div>
-        <button className="cursor-pointer py-3 px-5 rounded-lg border mb-7 bg-white hover:bg-gray-200 text-base font-semibold">
+        {/* <button className="cursor-pointer py-3 px-5 rounded-lg border mb-7 bg-white hover:bg-gray-200 text-base font-semibold">
           Hiển thị tất cả bình luận
-        </button>
+        </button> */}
         <div>
           {user && (
             <div className="flex">
@@ -675,7 +671,7 @@ function DetailRoom({ paramsId }) {
                   </Form.Item>
                   <Form.Item>
                     <Space>
-                      <Button type="primary" htmlType="submit">
+                      <Button className="btnSubmit" type="primary" htmlType="submit">
                         Thêm Đánh Giá
                       </Button>
                     </Space>

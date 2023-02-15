@@ -8,11 +8,28 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Outlet } from "react-router-dom";
 import { getAllRentalRoomAction } from "redux/actions/RetalRoomAction";
+import RoomList from "component/RoomList/RoomList"
+import Loader from "component/Loader/Loader"
 
 export default function HomeTemplate() {
+
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 2500);
+  }, []);
+
+
   return (
     <div>
-      <div
+      {loading ? (
+         <Loader />
+      ) : (
+        <div className="container m-auto">
+          <div
         style={{
           position: "sticky",
           top: "0",
@@ -23,10 +40,11 @@ export default function HomeTemplate() {
         <NavBar></NavBar>
         <Filter></Filter>
       </div>
-
-      {/* <Test></Test> */}
+      <RoomList />
       <Outlet></Outlet>
       <Footer />
+        </div>
+      )}
     </div>
   );
 }
